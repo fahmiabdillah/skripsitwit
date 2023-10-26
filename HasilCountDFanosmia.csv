@@ -1,7 +1,26 @@
-,KataKunci,Tweet,TweetGeolokasi,TweetNonDuplikat
-0,Anosmia,359,10,10
-1,Anosmia,356,10,10
-2,Anosmia,3104,63,63
-3,Anosmia,10000,224,224
-4,Anosmia,4438,109,109
-5,Anosmia,936,14,14
+;KataKunci;Tweet;TweetGeolokasi;TweetNonDuplikat;;;;;;;
+0;Anosmia;359;10;10;;;;;;;
+1;Anosmia;356;10;10;;;;;;;
+2;Anosmia;3104;63;63;;;;;;;
+3;Anosmia;10000;224;224;;;;;;;
+4;Anosmia;4438;109;109;;;;;;;
+5;Anosmia;936;14;14;;;;;;;
+;;;;;;;;;;;
+;;;;;;;;;;;
+No.;KataKunci;Tweet;TweetGeolokasi;TweetDuplikat;TweetNonDuplikat;;;;;;
+1;Covid-19;60.000;1.569;1.478;1.178;;;;;;
+2;SARS-CoV-2;3.451;59;59;59;;;;;;659
+3;Coronavirus;15.640;302;302;302;;;;;;24
+4;Batuk;60.000;1.085;1.085;985;;;;;;
+5;Batuk Kering;3.087;64;64;64;5668;66;66;;;
+6;Pilek;60.000;860;659;635;5670;70;70;;;
+7;Kelelahan;22.588;338;337;337;6553;87;87;;;
+8;Sakit Kepala;60.000;1.248;1.040;940;7415;88;88;;;
+9;Demam;60.000;1.540;1.240;740;4470;47;47;;;
+10;Sesak Napas;16.023;245;245;245;4979;45;45;;;
+11;Sakit Tenggorokan;34.758;403;403;403;;;;;;
+12;Diare;34.308;559;559;559;;;;;;
+13;Delta;47.381;1.240;1.034;834;;;;;;
+14;Omicron;34.755;403;403;403;;;;;;
+15;Anosmia;19.193;430;430;430;;;;;;
+;Total;531.184;10.345;9.338; 8.114 ;8.114;;;;;

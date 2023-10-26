@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Meuble</title>
+ 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+ 
+    <link href="//getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+</head>
+ 
+<body>
+ 
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="http://localhost:5000">Dashboard</a></li>
+                    <li role="presentation"class="active"><a href="#">Furniture</a></li>
+                    <li role="presentation"><a href="http://localhost:5000/tata_busana_guest">Busana</a></li>                    
+                </ul>
+            </nav>
+            <img src="{{url_for('static', filename='header.png')}}" width="90px" width="90px" />            
+        </div>
+        
+        <div class="well">            
+            <div class="row">
+                {% for baris in value %}
+                <div class="col-sm-4 col-md-4">
+                    <div class="thumbnail">                        
+                        <img alt="200%x300" src="{{url_for('static', filename='images/' + baris[0])}}" 
+                        data-holder-rendered="true" style="height: 280px; width: 290px; display: block;">
+                        <!-- <a href="{{ url_for('static', filename='sample.jpg') }}"></a> -->
+
+                        <div class="caption">
+                            <h3>{{ baris[1] }}</h3>
+                            <h5> Jenis (Kinds) : {{ baris[2] }}</h5>
+                            <h5> Harga (Price) : {{ baris[3] }}</h5>
+                            <h5> Status : {{ baris[4] }}</h5>
+                            <div style="display: none;" >
+                            <h5>{{ baris[5] }}</h5>
+                            </div>
+                                </button>
+                            </form>                       
+
+                        </div>
+                    </div>
+                </div>                
+                {% endfor %}
+             </div>             
+        </div>        
+ 
+            <footer class="footer">
+                <p>©Avil Corporation 2020</p>
+            </footer>
+ 
+        </div>
+</body>
+ 
+</html>

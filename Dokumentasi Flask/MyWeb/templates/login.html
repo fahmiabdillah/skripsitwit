@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+	<title>Login</title>	
+
+<body>
+	<div class="login">
+		<h1>Login</h1>			
+		
+		<form id="Login" method="post">
+			<label for="username">
+				<i class="fas fa-user"></i>
+			</label>
+			<input type="text" name="username" placeholder="Username" id="username" required>
+			<label for="password">
+				<i class="fas fa-lock"></i>
+			</label>
+			<input type="password" name="password" placeholder="Password" id="password" required>
+			<div class="msg">{{ msg }}</div>
+			<input type="submit" value="Login">
+		</form>
+	</div>
+</body>
+
+</html>

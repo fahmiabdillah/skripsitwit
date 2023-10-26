@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+    <link rel="stylesheet" href="/static/styles.css"/>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DBSCAN Apps</title>
+        <link rel="icon" href="/static/img/patient.png"/>
+        <py-env>
+            - paths:
+              - ../dbscan.py
+        </py-env>
+    </head>
+<body><div class="container contact-form">
+    <div class="contact-image">
+        <img src="/static/img/coronavirus-color.png" alt="covid-cluster">
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>
+                epsilon : {{eps}} <br> minPoints: {{minpts}}
+            </h3>
+            
+            <!-- <py-repl src="../dbscan.py"></py-repl> -->
+            <!-- <py-script src="../dbscan.py"></py-script> -->
+            <!-- <py-script >
+                print("hellooo")
+            </py-script> -->
+        </div>
+    </div>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Meuble</title>
+ 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+ 
+    <link href="//getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+ 
+<body>
+ 
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="http://localhost:5000/dashboard">Dashboard</a></li>
+                    <li role="presentation"> <a href="http://localhost:5000/furniture">Furniture</a></li>
+                    <li role="presentation"><a href="http://localhost:5000/tata_busana">Busana</a></li>
+                    <li role="presentation"><a href="/logout">App/Web</a></li>
+                    <li role="presentation"><a href="http://localhost:5000/tambah_produk">Tambah Produk</a></li>
+                    <li role="presentation"><a href="/logout">Pengaturan</a></li>
+                </ul>
+            </nav>
+            <img src="{{url_for('static', filename='header.png')}}" width="90px" width="90px" />            
+        </div>
+        
+        <div class="well well-lg">
+            <div class="row">
+                {% for baris in value %}
+                    <img alt="Paris" class="col-md-4" src="{{url_for('static', filename='images/' + baris[0])}}" width="400px" height="355px">
+                    <h1><b>{{baris[1]}}</b></h1>
+                    </br>                
+                    <p>Bahan (Kinds)  : <b>{{baris[2]}}</b></p>
+                    <p>Harga (Prices) : <b>{{baris[3]}}</b></p>
+                    <p>Status(Status) : <b>{{baris[4]}}</b></p>  
+                    </br>               
+                    <p>Deskripsi (Description)</p>                                    
+                    <p>{{baris[6]}}</p>                
+                {% endfor %}
+           </div>    
+
+           </br></br></br>      
+            <footer class="footer">
+                <p>©Avil Corporation 2020</p>
+            </footer>
+        </div>
+</body>
+ 
+</html>

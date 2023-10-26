@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Meuble</title>
+ 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+ 
+    <link href="//getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+</head>
+ 
+<body>
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="http://localhost:5000/dashboard">Dashboard</a></li>
+                    <li role="presentation"><a href="http://localhost:5000/furniture">Furniture</a></li>
+                    <li role="presentation"><a href="http://localhost:5000/tata_busana">Busana</a></li>
+                    <li role="presentation"><a href="/logout">App/Web</a></li>
+                    <li role="presentation"class="active"><a href="#">Tambah produk</a></li>
+                    <li role="presentation"><a href="/logout">Pengaturan</a></li>
+                </ul>
+            </nav>
+            <img src="{{url_for('static', filename='header.png')}}" width="90px" width="90px" />            
+        </div>
+
+
+        
+        <div class="well">            
+            <div class="row">
+                <div class="col-md-6">                    
+                    <h1><b>Tambah Produk</b></h1>
+                    </br>
+ 
+
+                    <form action="{{ url_for('tambah_produk') }}" method="post" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <label for="fname">Nama Produk</label>
+                            <input type="text" id="fname" class="form-control" name="txtNamaProduk" autocomplete="off" ">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Jenis Produk</label>
+                            <select id="jnsProduk" name="jnsProduk" class="form-control">
+                                <option>--Pilih Jenis Kategori--</option>
+                                {% for jnsProduk in value %}                                         
+                                    <option value="{{jnsProduk[1]}}">{{jnsProduk[1]}}</option>                               
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Bahan</label>
+                            <select class="form-control" id="bahan" name="bahan">
+                                <option value="none">--Pilih Bahan--</option>
+                                {% for bahan in value2 %}                                         
+                                    <option value="{{bahan[0]}}">{{bahan[0]}}</option>                               
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lname">Harga</label>
+                            <input type="text" id="lname" class="form-control" name="txtHarga" autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Deskripsi</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="txtDeskripsi" autocomplete="off"></textarea>
+                        </div>
+
+                        <!-- <label for="exampleFormControlTextarea1">Status</label></br> -->
+
+                        </br>Status : </br>
+                        <label class="radio-inline"><input type="radio" value="tersedia" name="rbJenis" checked />Tersedia</label>
+                        <label class="radio-inline"><input type="radio" value="order" name="rbJenis" />Order</label>
+                                  
+                        
+                        </br></br>
+                                    
+                        Pilih file yang akan diunggah:<br />
+                        <input type="file" name="file" /><br/></br>
+                        <button type="submit" class="btn btn-primary btn-lg col-md-12" name="input" value="Upload">Input</button>                          
+                   </form>
+
+                </br></br></br>
+                                                           
+             </div>             
+        </div>        
+            </br>
+            <footer class="footer">
+                <p>©Avil Corporation 2020</p>
+            </footer>
+ 
+        </div>
+</body>
+ 
+</html>

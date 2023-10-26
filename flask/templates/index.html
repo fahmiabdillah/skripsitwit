@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+    <link rel="stylesheet" href="/static/styles.css"/>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBSCAN Apps</title>
+    <link rel="icon" href="/static/img/patient.png"/>
+</head>
+<body>
+    <div class="container contact-form">
+        <div class="contact-image">
+            <img src="/static/img/coronavirus-color.png" alt="covid-cluster">
+        </div>
+        <form method="POST" action="/calculate">
+           <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="number" step="0.1" id="Epsilon" name="eps" class="form-control" placeholder="Epsilon.." required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input type="number" step="10" id="minPts" name="minpts" class="form-control" placeholder="minPoints.." required="required" />
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" name="btnSubmit" class="btnContact">Calculate</button> 
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h2>
+                        DBSCAN Cluster App 
+                    </h2>
+                    <h3>
+                        Website ini adalah implementasi clustering DBSCAN dengan menggunakan input nilai Epsilon dan minPts. Dataset yang digunakan 
+                        adalah data media sosial Twitter tentang penyebaran penyakit menular langsung (Covid-19) berbahasa
+                        Indonesia.
+                    </h3>
+                </div>
+            </div>
+        </form>
+        <form action="/readtable">          
+            <div class="row">
+                <div class="col-md-6">
+                    <button formtarget="_blank" type="submit" class="btnContactSubmit">Read Dataset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Tata Busana</title>
+ 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+ 
+    <link href="//getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+ 
+<body>
+ 
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="http://localhost:5000/dashboard">Dashboard</a></li>
+                    <li role="presentation"><a href="http://localhost:5000/furniture">Furniture</a></li>
+                    <li role="presentation"class="active"><a href="#">Busana</a></li>
+                    <li role="presentation"><a href="/logout">App/Web</a></li>
+                    <li role="presentation"><a href="http://localhost:5000/tambah_produk">Tambah Produk</a></li>
+                    <li role="presentation"><a href="/logout">Pengaturan</a></li>
+                    <li role="presentation"><a href="http://localhost:5000/logout">Logout</a></li>
+                </ul>
+            </nav>
+            <img src="{{url_for('static', filename='header.png')}}" width="90px" width="90px" />
+        </div>
+ 
+        <div class="well">            
+            <div class="row">
+                {% for baris in value %}
+                <div class="col-sm-4 col-md-4">
+                    <div class="thumbnail">                        
+                        <img alt="200%x300" src="{{url_for('static', filename='images/' + baris[0])}}" 
+                        data-holder-rendered="true" style="height: 280px; width: 290px; display: block;">
+                        <!-- <a href="{{ url_for('static', filename='sample.jpg') }}"></a> -->
+
+                        <div class="caption">
+                            <h3>{{ baris[1] }}</h3>
+                            <h5> Jenis (Kinds) : {{ baris[2] }}</h5>
+                            <h5> Harga (Price) : {{ baris[3] }}</h5>
+                            <h5> Status : {{ baris[4] }}</h5>
+                            <div style="display: none;" >
+                            <h5>{{ baris[5] }}</h5>
+                            </div>
+                                                                                                                            
+                            <!-- hapus -->
+                            <form class="row col-md-3" action="http://localhost:5000/hapusBusana/{{baris[5]}}" method="post">
+
+                                <button type="button" data-toggle="modal" class="btn btn-danger a-btn-slide-text" data-target="#myModal{{baris[5]}}">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </button> 
+
+                                <!-- Modal -->
+                                  <div class="modal fade" id="myModal{{baris[5]}}" role="dialog">
+                                    <div class="modal-dialog">
+
+                                      <!-- Modal content-->
+                                      <div class="modal-content">
+                                        <div class="modal-header">                                          
+                                          <h4 class="modal-title">Apakah anda yakin ingin menghapus produk ini?</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>Are you sure delete this product?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-primary" data-dismiss="modal">Batal</button>
+                                          <!-- <form class="row col-md-3" action="http://localhost:5000/furniture/{{baris[5]}}" method="post"> -->
+                                               <button type="submit" name="btnHapus" value="{{baris[5]}}" class="btn btn-danger a-btn-slide-text">Ya</button>
+                                          <!-- </form> -->
+                                        </div>
+                                      </div>  
+                                    </div>
+                                  </div>
+                                                                                               
+                            </form>
+                            <!-- end hapus -->
+
+                            <!-- edit -->                             
+                            <form class="row col-md-3" action="http://localhost:5000/editBusana/{{baris[5]}}" method="post">
+                                <!-- Modal -->
+                                <button type="button" data-toggle="modal" class="btn btn-primary a-btn-slide-text" data-target="#myModal2{{baris[5]}}">
+                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                </button>                        
+
+                              <div class="modal fade" id="myModal2{{baris[5]}}" role="dialog">
+                                <div class="modal-dialog">
+
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">                                          
+                                      <h4 class="modal-title">Ubah data produk</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                      <div class="form-group">
+                                        <label for="fname">Nama Produk</label>
+                                        <input type="text" value="{{baris[1]}}" id="fname" class="form-control" name="txtNamaProduk" autocomplete="off" ">
+                                      </div>
+
+                                      <div class="form-group">
+                                        <label for="lname">Harga</label>
+                                        <input type="text" value="{{baris[3]}}" id="lname" class="form-control" name="txtHarga" autocomplete="off">
+                                      </div>
+
+                                      <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Deskripsi</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="txtDeskripsi" autocomplete="off">{{baris[6]}}</textarea>
+                                      </div>
+
+                                        </br>Status : </br>                                        
+                                        {% if baris[4] == "tersedia" %}
+                                            <label class="radio-inline"><input type="radio" value="tersedia" name="rbJenis" checked />Tersedia</label>
+                                            <label class="radio-inline"><input type="radio" value="order" name="rbJenis"/>Order</label>
+                                        {% else %}
+                                            <label class="radio-inline"><input type="radio" value="tersedia" name="rbJenis"/>Tersedia</label>
+                                            <label class="radio-inline"><input type="radio" value="order" name="rbJenis" checked/>Order</label>
+                                        {% endif %}                                                                            
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-primary" data-dismiss="modal">Batal</button>
+                                      <!-- <form class="row col-md-3" action="http://localhost:5000/furniture/{{baris[5]}}" method="post"> -->
+                                           <button type="submit" name="btnEdit" value="{{baris[5]}}" class="btn btn-primary a-btn-slide-text">Ubah</button>
+                                      <!-- </form> -->
+                                    </div>
+                                  </div>  
+                                </div>
+                              </div>
+                            </form>
+                            <!-- end edit --> 
+
+                            <form action="http://localhost:5000/detailProduk/{{baris[5]}}" method="post">
+                                <button type="submit" class="btn btn-success a-btn-slide-text"> 
+                                <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>                            
+                                </button>
+                            </form>                       
+
+                        </div>
+                    </div>
+                </div>                
+                {% endfor %}
+             </div>             
+        </div>  
+ 
+            <footer class="footer">
+                <p>©Avil Corporation 2020</p>
+            </footer>
+ 
+        </div>
+</body>
+ 
+</html>
